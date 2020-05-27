@@ -26,19 +26,19 @@ you through the process.
 From sources
 ------------
 
-The sources for filter_sam can be downloaded from the `Github repo`_.
+The sources for filter_sam can be downloaded from the `GitLab repo`_.
 
 You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/milescsmith/filter_sam
+    $ git clone git://gitlab.com/milothepsychic/filter_sam
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/milescsmith/filter_sam/tarball/master
+    $ curl -OJL https://gitlab.com/milothepsychic/filter_sam/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/milescsmith/filter_sam
-.. _tarball: https://github.com/milescsmith/filter_sam/tarball/master
+.. _GitLab repo: https://gitlab.com/milothepsychic/filter_sam
+.. _tarball: https://gitlab.com/milothepsychic/filter_sam/tarball/master
