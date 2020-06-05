@@ -18,7 +18,7 @@ import pysam
 )
 @click.help_option()
 def main(
-    fasta: Optional[str], fastq: Optional[str], sam: str, prefix: Optional[str],
+    fasta: Optional[str], sam: str, prefix: Optional[str],
 ) -> None:
     """Remove from a SAM/BAM file entries that do not have a corresponding match
     in a FASTA/FASTQ file
@@ -44,8 +44,8 @@ def main(
 
     """
 
-    fastq_records = [_ for _ in SeqIO.parse(fasta, "fasta")]
-    fastq_record_names = [_.name for _ in fastq_records]
+    fasta_records = [_ for _ in SeqIO.parse(fasta, "fasta")]
+    fasta_record_names = [_.name for _ in fasta_records]
 
     sam_records = pysam.AlignmentFile(sam, "rb")
     filtered_sam_records = pysam.AlignmentFile(
