@@ -53,7 +53,7 @@ def main(
     )
 
     for _ in sam_records.fetch():
-        if _.query_name in fastq_record_names:
+        if _.query_name in fasta_record_names:
             filtered_sam_records.write(_)
 
     filtered_sam_records.close()
