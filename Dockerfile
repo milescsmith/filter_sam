@@ -15,8 +15,8 @@ RUN apt-get update --fix-missing && \
     rm -rf /tmp/downloaded_packages/* && \
     rm -rf /var/lib/apt/lists/*
 
-# RUN pip install git+https://gitlab.com/milothepsychic/filter_sam
-ADD ./* /opt/filter_sam/
-RUN pip install -e /opt/filter_sam
+RUN pip install git+https://gitlab.com/milothepsychic/filter_sam
+# ADD ./* /opt/filter_sam/
+# RUN pip install -e /opt/filter_sam
 
 CMD [ "filter_sam" ]
