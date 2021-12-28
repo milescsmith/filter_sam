@@ -1,24 +1,34 @@
 """Console script for filter_sam."""
 import sys
-import click
 from Bio import SeqIO
 from typing import Optional
+import typer
 import pysam
 
-# @main.command()
-@click.command()
-@click.option(
-    "--fasta", "-a", help="FASTA file", default=None, required=True, type=str,
+from . import __version__
+
+
+app = typer.Typer(
+    name="filter_sam",
+    help=f"Remove from a SAM/BAM file entries that do not have a corresponding "
+        "match in a FASTA/FASTQ file",
 )
-@click.option(
-    "--sam", "-s", help="SAM or BAM file", default=None, required=True, type=str,
-)
-@click.option(
-    "--prefix", "-p", help="Output prefix", default="", required=False, type=str,
-)
-@click.help_option()
+
+
+def version_callback(value: bool):
+    """Prints the version of the package."""
+    if value:
+        print(
+            f"filter_sam version: {__version__}"
+        )
+    raise typer.Exit()
+
+
+@app.command()
 def main(
-    fasta: Optional[str], sam: str, prefix: Optional[str],
+    sam: str = typer.Option(..., "-s", "--sam", help="SAM or BAM file"),
+    fasta: Optional[str] = typer.Option(None, "-a", "--fasta", help="FASTA file"),
+    prefix: Optional[str] = typer.Option(None, "-p", "--prefix", help="Output prefix"),
 ) -> None:
     """Remove from a SAM/BAM file entries that do not have a corresponding match
     in a FASTA/FASTQ file
@@ -61,4 +71,4 @@ def main(
 
 
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    typer.run(main)  # pragma: no cover
